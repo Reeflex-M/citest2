@@ -5,57 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simples Java CI - Plateforme d'Intégration Continue</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
     <nav>
-        <a href="index.html" class="active">Accueil</a>
-        <a href="about.html">À propos</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="active">Accueil <i class="fas fa-home"></i></a>
+        <a href="about.html">À propos <i class="fas fa-info-circle"></i></a>
+        <a href="contact.html">Contact <i class="fas fa-envelope"></i></a>
     </nav>
     
     <header>
+        <div class="ninja-icon left"><i class="fas fa-certificate"></i></div>
         <h1>Simples Java CI</h1>
         <p>Solution d'intégration continue pour projets Java</p>
+        <div class="ninja-icon right"><i class="fas fa-certificate"></i></div>
     </header>
     
     <div class="container">
-        <section>
-            <h2>Bienvenue sur notre plateforme</h2>
+        <section class="hero-section">
+            <h2><i class="fas fa-fire"></i> Bienvenue sur notre plateforme</h2>
             <p>
                 Simples Java CI est une solution légère et efficace pour l'intégration continue 
                 de vos projets Java. Notre plateforme vous permet d'automatiser les tests, 
                 les déploiements et d'assurer la qualité de votre code.
             </p>
+            <div class="ninja-scroll"></div>
         </section>
         
         <section class="features">
             <div class="feature-card">
+                <div class="card-icon"><i class="fas fa-vial"></i></div>
                 <h3>Tests Automatisés</h3>
                 <p>Exécutez automatiquement vos tests JUnit à chaque commit pour garantir la stabilité de votre code.</p>
             </div>
             
             <div class="feature-card">
+                <div class="card-icon"><i class="fab fa-github"></i></div>
                 <h3>Intégration GitHub</h3>
                 <p>Connectez facilement vos dépôts GitHub et déclenchez des workflows CI/CD à chaque push.</p>
             </div>
             
             <div class="feature-card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
                 <h3>Rapports Détaillés</h3>
                 <p>Obtenez des rapports complets sur la couverture de code et les résultats des tests.</p>
             </div>
         </section>
         
-        <section>
-            <h2>Comment démarrer</h2>
+        <section class="get-started">
+            <h2><i class="fas fa-bolt"></i> Comment démarrer</h2>
             <p>
                 Consultez notre documentation pour configurer votre premier projet et 
                 commencer à bénéficier de l'intégration continue dès aujourd'hui.
             </p>
+            <a href="#" class="ninja-button">Commencer maintenant <i class="fas fa-arrow-right"></i></a>
         </section>
     </div>
     
     <footer>
-        <p>&copy; 2025 Simples Java CI - Tous droits réservés</p>
+        <div class="footer-content">
+            <p><i class="fas fa-copyright"></i> 2025 Simples Java CI - Tous droits réservés</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

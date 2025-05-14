@@ -5,45 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Simples Java CI</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
     <nav>
-        <a href="index.html">Accueil</a>
-        <a href="about.html" class="active">À propos</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">Accueil <i class="fas fa-home"></i></a>
+        <a href="about.html" class="active">À propos <i class="fas fa-info-circle"></i></a>
+        <a href="contact.html">Contact <i class="fas fa-envelope"></i></a>
     </nav>
     
     <header>
+        <div class="ninja-icon left"><i class="fas fa-certificate"></i></div>
         <h1>À propos de Simples Java CI</h1>
+        <div class="ninja-icon right"><i class="fas fa-certificate"></i></div>
     </header>
     
     <div class="container">
-        <section>
-            <h2>Notre mission</h2>
-            <p>
-                Simples Java CI a été créé pour simplifier le processus d'intégration continue 
-                pour les projets Java. Notre objectif est de fournir une solution robuste et 
-                facile à utiliser qui s'intègre parfaitement à votre flux de travail de développement.
-            </p>
+        <section class="about-section">
+            <div class="ninja-badge"></div>
             
-            <h2>Notre histoire</h2>
-            <p>
-                Fondé en 2023, Simples Java CI est né de la frustration des développeurs face à la 
-                complexité des solutions d'intégration continue existantes. Nous avons décidé de créer 
-                une alternative simple mais puissante qui répond spécifiquement aux besoins des 
-                projets Java.
-            </p>
+            <div class="about-card">
+                <h2><i class="fas fa-flag"></i> Notre mission</h2>
+                <p>
+                    Simples Java CI a été créé pour simplifier le processus d'intégration continue 
+                    pour les projets Java. Notre objectif est de fournir une solution robuste et 
+                    facile à utiliser qui s'intègre parfaitement à votre flux de travail de développement.
+                </p>
+            </div>
             
-            <h2>Notre équipe</h2>
-            <p>
-                Notre équipe est composée de développeurs passionnés qui ont une expérience 
-                approfondie dans le développement Java et les pratiques DevOps.
-            </p>
+            <div class="about-card">
+                <h2><i class="fas fa-book-open"></i> Notre histoire</h2>
+                <p>
+                    Fondé en 2023, Simples Java CI est né de la frustration des développeurs face à la 
+                    complexité des solutions d'intégration continue existantes. Nous avons décidé de créer 
+                    une alternative simple mais puissante qui répond spécifiquement aux besoins des 
+                    projets Java.
+                </p>
+                <div class="ninja-path"></div>
+            </div>
+            
+            <div class="about-card">
+                <h2><i class="fas fa-users"></i> Notre équipe</h2>
+                <p>
+                    Notre équipe est composée de développeurs passionnés qui ont une expérience 
+                    approfondie dans le développement Java et les pratiques DevOps.
+                </p>
+                
+                <div class="team-members">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-ninja"></i>
+                        </div>
+                        <h3>Ninja Coder</h3>
+                        <p>Expert Java</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-ninja"></i>
+                        </div>
+                        <h3>DevOps Master</h3>
+                        <p>CI/CD Expert</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-ninja"></i>
+                        </div>
+                        <h3>Test Sage</h3>
+                        <p>JUnit Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="values-section">
+            <h2><i class="fas fa-star"></i> Nos valeurs</h2>
+            <div class="values-container">
+                <div class="value-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rapidité</h3>
+                    <p>Des builds rapides pour un feedback immédiat</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Fiabilité</h3>
+                    <p>Tests rigoureux pour une qualité irréprochable</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-feather-alt"></i>
+                    <h3>Légèreté</h3>
+                    <p>Solution minimaliste et efficace</p>
+                </div>
+            </div>
         </section>
     </div>
     
     <footer>
-        <p>&copy; 2025 Simples Java CI - Tous droits réservés</p>
+        <div class="footer-content">
+            <p><i class="fas fa-copyright"></i> 2025 Simples Java CI - Tous droits réservés</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
