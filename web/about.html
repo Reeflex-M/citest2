@@ -4,108 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Simples Java CI</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        naruto: {
+                            orange: '#ff4500',
+                            orangeLight: '#ff7800',
+                            dark: '#333333'
+                        }
+                    },
+                    backgroundImage: {
+                        'ninja-pattern': "url('https://i.imgur.com/JHRpWRu.png')",
+                        'scroll-pattern': "url('https://i.imgur.com/bFcnRjo.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        .bg-ninja {
+            background-color: #f9f6e5;
+            background-image: url('https://i.imgur.com/JHRpWRu.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-size: 200px;
+            background-blend-mode: overlay;
+        }
+        .ninja-header-pattern {
+            background: linear-gradient(90deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        .ninja-path {
+            height: 20px;
+            background-image: url('https://i.imgur.com/zXcIObm.png');
+            background-repeat: repeat-x;
+            background-size: contain;
+            margin: 1.5rem 0;
+            opacity: 0.3;
+        }
+        .ninja-badge {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://i.imgur.com/X9GvAte.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        .shine-effect:hover::after {
+            animation: shine 0.6s;
+        }
+    </style>
 </head>
-<body>
-    <nav>
-        <a href="index.html">Accueil <i class="fas fa-home"></i></a>
-        <a href="about.html" class="active">À propos <i class="fas fa-info-circle"></i></a>
-        <a href="contact.html">Contact <i class="fas fa-envelope"></i></a>
+<body class="bg-ninja relative text-gray-800 font-sans">
+    <!-- Overlay blanc semi-transparent -->
+    <div class="fixed inset-0 bg-white bg-opacity-70 -z-10"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-naruto-dark relative">
+        <!-- Barre orange supérieure -->
+        <div class="h-1 bg-gradient-to-r from-naruto-orange via-naruto-orangeLight to-naruto-orange absolute top-0 w-full"></div>
+        
+        <div class="container mx-auto flex justify-center items-center">
+            <a href="index.html" class="text-white py-4 px-5 font-bold uppercase tracking-wider hover:bg-naruto-orange hover:bg-opacity-80 transition-all shine-effect">
+                Accueil <i class="fas fa-home ml-2"></i>
+            </a>
+            <a href="about.html" class="text-white py-4 px-5 font-bold uppercase tracking-wider bg-naruto-orange relative shine-effect">
+                À propos <i class="fas fa-info-circle ml-2"></i>
+                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-white"></span>
+            </a>
+            <a href="contact.html" class="text-white py-4 px-5 font-bold uppercase tracking-wider hover:bg-naruto-orange hover:bg-opacity-80 transition-all shine-effect">
+                Contact <i class="fas fa-envelope ml-2"></i>
+            </a>
+        </div>
     </nav>
     
-    <header>
-        <div class="ninja-icon left"><i class="fas fa-certificate"></i></div>
-        <h1>À propos de Simples Java CI</h1>
-        <div class="ninja-icon right"><i class="fas fa-certificate"></i></div>
+    <!-- En-tête -->
+    <header class="bg-gradient-to-r from-naruto-orangeLight to-naruto-orange text-white text-center py-12 relative overflow-hidden shadow-lg">
+        <div class="ninja-header-pattern"></div>
+        
+        <div class="hidden md:block absolute left-12 top-1/2 transform -translate-y-1/2 -rotate-12 text-4xl text-white text-opacity-70">
+            <i class="fas fa-certificate"></i>
+        </div>
+        
+        <h1 class="text-4xl font-bold tracking-wider relative inline-block mb-4 shadow-text">
+            À propos de Simples Java CI
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-1 bg-white rounded-sm"></span>
+        </h1>
+        
+        <div class="hidden md:block absolute right-12 top-1/2 transform -translate-y-1/2 rotate-12 text-4xl text-white text-opacity-70">
+            <i class="fas fa-certificate"></i>
+        </div>
     </header>
     
-    <div class="container">
-        <section class="about-section">
+    <!-- Contenu principal -->
+    <div class="container mx-auto px-6 py-8">
+        <!-- Section À propos -->
+        <section class="mb-16 relative">
             <div class="ninja-badge"></div>
             
-            <div class="about-card">
-                <h2><i class="fas fa-flag"></i> Notre mission</h2>
-                <p>
+            <!-- Notre mission -->
+            <div class="bg-white rounded-lg p-6 mb-8 shadow-lg border-l-4 border-naruto-orange relative">
+                <h2 class="text-2xl font-bold mb-6 inline-block relative">
+                    <i class="fas fa-flag text-naruto-orange mr-2"></i> Notre mission
+                    <span class="absolute bottom-0 left-0 w-16 h-1 bg-naruto-orange rounded-sm"></span>
+                </h2>
+                
+                <p class="text-gray-700 mb-4">
                     Simples Java CI a été créé pour simplifier le processus d'intégration continue 
                     pour les projets Java. Notre objectif est de fournir une solution robuste et 
                     facile à utiliser qui s'intègre parfaitement à votre flux de travail de développement.
                 </p>
             </div>
             
-            <div class="about-card">
-                <h2><i class="fas fa-book-open"></i> Notre histoire</h2>
-                <p>
+            <!-- Notre histoire -->
+            <div class="bg-white rounded-lg p-6 mb-8 shadow-lg border-l-4 border-naruto-orange relative">
+                <h2 class="text-2xl font-bold mb-6 inline-block relative">
+                    <i class="fas fa-book-open text-naruto-orange mr-2"></i> Notre histoire
+                    <span class="absolute bottom-0 left-0 w-16 h-1 bg-naruto-orange rounded-sm"></span>
+                </h2>
+                
+                <p class="text-gray-700 mb-4">
                     Fondé en 2023, Simples Java CI est né de la frustration des développeurs face à la 
                     complexité des solutions d'intégration continue existantes. Nous avons décidé de créer 
                     une alternative simple mais puissante qui répond spécifiquement aux besoins des 
                     projets Java.
                 </p>
+                
                 <div class="ninja-path"></div>
             </div>
             
-            <div class="about-card">
-                <h2><i class="fas fa-users"></i> Notre équipe</h2>
-                <p>
+            <!-- Notre équipe -->
+            <div class="bg-white rounded-lg p-6 mb-8 shadow-lg border-l-4 border-naruto-orange relative">
+                <h2 class="text-2xl font-bold mb-6 inline-block relative">
+                    <i class="fas fa-users text-naruto-orange mr-2"></i> Notre équipe
+                    <span class="absolute bottom-0 left-0 w-16 h-1 bg-naruto-orange rounded-sm"></span>
+                </h2>
+                
+                <p class="text-gray-700 mb-6">
                     Notre équipe est composée de développeurs passionnés qui ont une expérience 
                     approfondie dans le développement Java et les pratiques DevOps.
                 </p>
                 
-                <div class="team-members">
-                    <div class="team-member">
-                        <div class="member-avatar">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Membre 1 -->
+                    <div class="text-center p-4 bg-white bg-opacity-70 rounded-lg transform transition-transform hover:-translate-y-2">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-naruto-orange rounded-full flex items-center justify-center text-white text-3xl">
                             <i class="fas fa-user-ninja"></i>
                         </div>
-                        <h3>Ninja Coder</h3>
-                        <p>Expert Java</p>
+                        <h3 class="text-lg font-bold text-naruto-orange">Ninja Coder</h3>
+                        <p class="text-gray-700">Expert Java</p>
                     </div>
-                    <div class="team-member">
-                        <div class="member-avatar">
+                    
+                    <!-- Membre 2 -->
+                    <div class="text-center p-4 bg-white bg-opacity-70 rounded-lg transform transition-transform hover:-translate-y-2">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-naruto-orange rounded-full flex items-center justify-center text-white text-3xl">
                             <i class="fas fa-user-ninja"></i>
                         </div>
-                        <h3>DevOps Master</h3>
-                        <p>CI/CD Expert</p>
+                        <h3 class="text-lg font-bold text-naruto-orange">DevOps Master</h3>
+                        <p class="text-gray-700">CI/CD Expert</p>
                     </div>
-                    <div class="team-member">
-                        <div class="member-avatar">
+                    
+                    <!-- Membre 3 -->
+                    <div class="text-center p-4 bg-white bg-opacity-70 rounded-lg transform transition-transform hover:-translate-y-2">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-naruto-orange rounded-full flex items-center justify-center text-white text-3xl">
                             <i class="fas fa-user-ninja"></i>
                         </div>
-                        <h3>Test Sage</h3>
-                        <p>JUnit Specialist</p>
+                        <h3 class="text-lg font-bold text-naruto-orange">Test Sage</h3>
+                        <p class="text-gray-700">JUnit Specialist</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="values-section">
-            <h2><i class="fas fa-star"></i> Nos valeurs</h2>
-            <div class="values-container">
-                <div class="value-item">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Rapidité</h3>
-                    <p>Des builds rapides pour un feedback immédiat</p>
+        <!-- Section Valeurs -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 inline-block relative">
+                <i class="fas fa-star text-naruto-orange mr-2"></i> Nos valeurs
+                <span class="absolute bottom-0 left-0 w-16 h-1 bg-naruto-orange rounded-sm"></span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <!-- Valeur 1 -->
+                <div class="bg-white rounded-lg p-6 text-center shadow-lg transform transition-all hover:-translate-y-2">
+                    <i class="fas fa-bolt text-5xl text-naruto-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-naruto-dark mb-2">Rapidité</h3>
+                    <p class="text-gray-700">Des builds rapides pour un feedback immédiat</p>
                 </div>
-                <div class="value-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Fiabilité</h3>
-                    <p>Tests rigoureux pour une qualité irréprochable</p>
+                
+                <!-- Valeur 2 -->
+                <div class="bg-white rounded-lg p-6 text-center shadow-lg transform transition-all hover:-translate-y-2">
+                    <i class="fas fa-shield-alt text-5xl text-naruto-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-naruto-dark mb-2">Fiabilité</h3>
+                    <p class="text-gray-700">Tests rigoureux pour une qualité irréprochable</p>
                 </div>
-                <div class="value-item">
-                    <i class="fas fa-feather-alt"></i>
-                    <h3>Légèreté</h3>
-                    <p>Solution minimaliste et efficace</p>
+                
+                <!-- Valeur 3 -->
+                <div class="bg-white rounded-lg p-6 text-center shadow-lg transform transition-all hover:-translate-y-2">
+                    <i class="fas fa-feather-alt text-5xl text-naruto-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-naruto-dark mb-2">Légèreté</h3>
+                    <p class="text-gray-700">Solution minimaliste et efficace</p>
                 </div>
             </div>
         </section>
     </div>
     
-    <footer>
-        <div class="footer-content">
+    <!-- Pied de page -->
+    <footer class="bg-naruto-dark text-white py-6 relative">
+        <!-- Barre orange supérieure -->
+        <div class="h-1 bg-gradient-to-r from-naruto-orange via-naruto-orangeLight to-naruto-orange absolute top-0 w-full"></div>
+        
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <p><i class="fas fa-copyright"></i> 2025 Simples Java CI - Tous droits réservés</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+            
+            <div class="mt-4 md:mt-0">
+                <a href="#" class="text-white mx-2 text-xl hover:text-naruto-orange transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-white mx-2 text-xl hover:text-naruto-orange transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-white mx-2 text-xl hover:text-naruto-orange transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
             </div>
         </div>
     </footer>
