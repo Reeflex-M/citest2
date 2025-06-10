@@ -5,5 +5,9 @@
 Mini-project Java with pipeline CI/CD and using GitHub Actions
 
 Calculator with :
- - addition
- - substraction"# citest2" 
+
+- addition
+- substraction"# citest2"
+
+lancer web :
+cd web && python -m http.server 8000
