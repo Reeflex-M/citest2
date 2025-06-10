@@ -7,20 +7,13 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -62,24 +55,21 @@ jobs:
 
       - name: Prepare deployment files
         run: |
+          # Créer un dossier de déploiement
+          mkdir -p deploy
+          
           # Copier les fichiers web
-          cp -r web/* ./
+          cp -r web/* deploy/
           
           # Créer un fichier de résultats des tests pour affichage web
-          echo "<!DOCTYPE html><html><head><title>Test Results</title></head><body>" > test-results.html
-          echo "<h1>✅ Tests Java réussis</h1>" >> test-results.html
-          echo "<p>Build time: $(date)</p>" >> test-results.html
-          echo "<p>Tous les tests JUnit sont passés avec succès!</p>" >> test-results.html
-          echo "</body></html>" >> test-results.html
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './'
+          echo "<!DOCTYPE html><html><head><title>Test Results</title></head><body>" > deploy/test-results.html
+          echo "<h1>✅ Tests Java réussis</h1>" >> deploy/test-results.html
+          echo "<p>Build time: $(date)</p>" >> deploy/test-results.html
+          echo "<p>Tous les tests JUnit sont passés avec succès!</p>" >> deploy/test-results.html
+          echo "</body></html>" >> deploy/test-results.html
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
